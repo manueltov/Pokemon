@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * PokemonMap is the map for PokemonGame
  * @author Manuel
@@ -5,13 +8,15 @@
  */
 public class PokemonMap {
 
-	//Coordenadas posicao atual
-	//pontuacao atual
-	//set de posicoes por onde ja passou
-	//TODO
+	private Coordinates atualPosi;
+	private int points;
+	private Set<Coordinates> pokemonCatched;
 	
-	//construtor (comeca na posicao 0,0)
-	//TODO
+	public PokemonMap() {
+		this.atualPosi = new Coordinates(0,0);
+		this.points = 0;
+		this.pokemonCatched = new HashSet<>();
+	}
 	
 	//metodo move para outra posicao
 	//TODO
