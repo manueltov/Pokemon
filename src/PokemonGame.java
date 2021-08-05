@@ -26,6 +26,7 @@ public class PokemonGame {
 		
 		
 		//TODO
+		//translate each N,S,E,O to U,D,L,R and
 		//Run the sequence in the map
 		
 		//TODO

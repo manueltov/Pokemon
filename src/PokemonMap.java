@@ -18,9 +18,21 @@ public class PokemonMap {
 		this.pokemonCatched = new HashSet<>();
 	}
 	
-	//metodo move para outra posicao
-	//TODO
-	
-	//metodo devolve pontuacao
-	//TODO
+	/**
+	 * This method moves Ash to the requested direction
+	 * @param dir - Up or Down or Left or Right
+	 * @return True if it correctly moved, False otherwise
+	 */
+	public boolean moveAsh(Direction dir) {
+		//TODO
+		return false;
+	}
+
+	/**
+	 * Method to get the pontuation
+	 * @return int with the pontuation
+	 */
+	public int getPoints() {
+		return points;
+	}
 }
