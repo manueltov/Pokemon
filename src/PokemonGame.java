@@ -1,6 +1,4 @@
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class PokemonGame {
@@ -13,31 +11,52 @@ public class PokemonGame {
 	 */
 	public static void main(String[] args) {
 		
-		//TODO
+		String upperSequence = args[0].toUpperCase();
+		
 		try {
-			boolean stringIsValid = validateString(args[0]);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			//lets consider that lower cases are also valid
+			validateString(upperSequence);
+			
+		} catch (InvalidCharException e) {
+			System.err.println("The sequence inserted is invalid.\n" +
+					"It shoud contain only N, S, E, O chars upper or lower case");
 			e.printStackTrace();
 		}
 		
-		//TODO
-		//Create PokemonMap
+		PokemonMap pkMap = new PokemonMap();
 		
+		//for each char of the sequence convert it to a elem of Direction and move the Ash
+		for (Character ch: upperSequence.toCharArray()) {
+			switch (ch) {
+			case 'N':
+				pkMap.moveAsh(Direction.U);
+				break;
+			case 'S':
+				pkMap.moveAsh(Direction.D);
+				break;
+			case 'E':
+				pkMap.moveAsh(Direction.L);
+				break;
+			case 'O':
+				pkMap.moveAsh(Direction.R);
+				break;
+			default:
+				break;
+			}
+		}
 		
-		//TODO
-		//translate each N,S,E,O to U,D,L,R and
-		//Run the sequence in the map
+		//System.out.println("Ash has made: " + pkMap.getPoints() + " points.");
 		
-		//TODO
-		//print the number of pokemons catched
+		System.out.println(pkMap.getPoints());
 	}
 	
-	//TODO
-	private static boolean validateString(String sequence) throws Exception {
-		
-		//lets consider that lower cases are also valid
-		String upperSequence = sequence.toUpperCase();
+	/**
+	 * This method validates the given sequence
+	 * The sequence can only have N, S, E, O chars
+	 * @param sequence
+	 * @throws InvalidCharException
+	 */
+	private static void validateString(String sequence) throws InvalidCharException {
 		
 		Set<Character> setOfValidChars = new HashSet<>();
 		setOfValidChars.add('N');
@@ -45,16 +64,11 @@ public class PokemonGame {
 		setOfValidChars.add('E');
 		setOfValidChars.add('O');
 
-		for (char ch: upperSequence.toCharArray()) {
+		for (char ch: sequence.toCharArray()) {
 			if(!setOfValidChars.contains(ch)) {
-				throw new Exception("Char " + ch + " is not valid");
+				throw new InvalidCharException("Char " + ch + " is not valid.");
 			}
 		}
-		
-		//TODO
-		//ver outros edge cases de erros para mandar excecao
-		
-		return true;
 	}
 
 }
