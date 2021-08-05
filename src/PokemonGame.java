@@ -14,8 +14,12 @@ public class PokemonGame {
 	public static void main(String[] args) {
 		
 		//TODO
-		//boolean stringIsValid = validateString(args[0]);
-		//take care exceptions invalid string
+		try {
+			boolean stringIsValid = validateString(args[0]);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//TODO
 		//Create PokemonMap
@@ -26,6 +30,30 @@ public class PokemonGame {
 		
 		//TODO
 		//print the number of pokemons catched
+	}
+	
+	//TODO
+	private static boolean validateString(String sequence) throws Exception {
+		
+		//lets consider that lower cases are also valid
+		String upperSequence = sequence.toUpperCase();
+		
+		Set<Character> setOfValidChars = new HashSet<>();
+		setOfValidChars.add('N');
+		setOfValidChars.add('S');
+		setOfValidChars.add('E');
+		setOfValidChars.add('O');
+
+		for (char ch: upperSequence.toCharArray()) {
+			if(!setOfValidChars.contains(ch)) {
+				throw new Exception("Char " + ch + " is not valid");
+			}
+		}
+		
+		//TODO
+		//ver outros edge cases de erros para mandar excecao
+		
+		return true;
 	}
 
 }
