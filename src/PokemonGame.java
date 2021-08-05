@@ -15,7 +15,7 @@ public class PokemonGame {
 		
 		try {
 			//lets consider that lower cases are also valid
-			validateString(upperSequence);
+			Utils.validateString(upperSequence);
 			
 		} catch (InvalidCharException e) {
 			System.err.println("The sequence inserted is invalid.\n" +
@@ -50,25 +50,4 @@ public class PokemonGame {
 		System.out.println(pkMap.getPoints());
 	}
 	
-	/**
-	 * This method validates the given sequence
-	 * The sequence can only have N, S, E, O chars
-	 * @param sequence
-	 * @throws InvalidCharException
-	 */
-	private static void validateString(String sequence) throws InvalidCharException {
-		
-		Set<Character> setOfValidChars = new HashSet<>();
-		setOfValidChars.add('N');
-		setOfValidChars.add('S');
-		setOfValidChars.add('E');
-		setOfValidChars.add('O');
-
-		for (char ch: sequence.toCharArray()) {
-			if(!setOfValidChars.contains(ch)) {
-				throw new InvalidCharException("Char " + ch + " is not valid.");
-			}
-		}
-	}
-
 }

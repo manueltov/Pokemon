@@ -70,6 +70,14 @@ public class PokemonMap {
 	}
 	
 	/**
+	 * Getter of atual position coordinates of Ash
+	 * @return
+	 */
+	public Coordinates getAtualPosi() {
+		return atualPosi;
+	}
+
+	/**
 	 * If that position has a pokemon, catch it
 	 * and save that position to the set
 	 * @param posi - position to try to catch
