@@ -5,28 +5,31 @@ public class PokemonGame {
 
 	/**
 	 * Main
+	 * 
 	 * @param args - string with sequece of movements
 	 * 
-	 * Each movement is a letter N, S, E or O (in portuguese: norte, sul, este, oeste).
+	 *             Each movement is a letter N, S, E or O (in portuguese: norte,
+	 *             sul, este, oeste).
 	 */
 	public static void main(String[] args) {
-		
+
 		String upperSequence = args[0].toUpperCase();
-		
+
 		try {
-			//lets consider that lower cases are also valid
+			// lets consider that lower cases are also valid
 			Utils.validateString(upperSequence);
-			
+
 		} catch (InvalidCharException e) {
-			System.err.println("The sequence inserted is invalid.\n" +
-					"It shoud contain only N, S, E, O chars upper or lower case");
+			System.err.println("The sequence inserted is invalid.\n"
+					+ "It shoud contain only N, S, E, O chars upper or lower case");
 			e.printStackTrace();
 		}
-		
+
 		PokemonMap pkMap = new PokemonMap();
-		
-		//for each char of the sequence convert it to a elem of Direction and move the Ash
-		for (Character ch: upperSequence.toCharArray()) {
+
+		// for each char of the sequence convert it to a elem of Direction and move the
+		// Ash
+		for (Character ch : upperSequence.toCharArray()) {
 			switch (ch) {
 			case 'N':
 				pkMap.moveAsh(Direction.U);
@@ -44,10 +47,10 @@ public class PokemonGame {
 				break;
 			}
 		}
-		
-		//System.out.println("Ash has made: " + pkMap.getPoints() + " points.");
-		
+
+		// System.out.println("Ash has made: " + pkMap.getPoints() + " points.");
+
 		System.out.println(pkMap.getPoints());
 	}
-	
+
 }

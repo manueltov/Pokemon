@@ -1,5 +1,6 @@
 /**
  * Coordinates x and y of a referencial
+ * 
  * @author Manuel
  *
  */
@@ -7,7 +8,7 @@ public class Coordinates {
 
 	private int x;
 	private int y;
-	
+
 	public Coordinates(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -53,5 +54,5 @@ public class Coordinates {
 			return false;
 		return true;
 	}
-	
+
 }

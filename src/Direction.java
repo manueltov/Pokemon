@@ -1,6 +1,6 @@
 /**
- * Possible moving directions
- * Up, Down, Left, Right
+ * Possible moving directions Up, Down, Left, Right
+ * 
  * @author Manuel
  *
  */
